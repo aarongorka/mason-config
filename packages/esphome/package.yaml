@@ -1,0 +1,25 @@
+---
+# yaml-language-server: $schema=https://github.com/mason-org/registry-schema/releases/latest/download/package.schema.json
+
+name: esphome
+description: Language server for ESPHome
+homepage: https://esphome.io/
+licenses: []
+languages:
+  - YAML
+categories:
+  - LSP
+
+source:
+  id: pkg:openvsx/ESPHome/esphome-vscode@2025.7.0
+  download:
+    file: ESPHome.esphome-vscode-{{version}}.vsix
+
+schemas:
+  lsp: vscode:https://raw.githubusercontent.com/esphome/esphome-vscode/v{{version}}/package.json
+
+bin:
+  esphome-lsp: node:extension/server/out/server.js
+
+neovim:
+  lspconfig: esphome_lsp
